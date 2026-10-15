@@ -1,0 +1,64 @@
+/* Expression Extractor 1.1.0 */
+.ee-off { display: none !important; }
+.ee-grow { flex: 1 1 auto; }
+
+/* ===== 떠 있는 창 (끌어서 이동 / 오른쪽 아래 모서리로 크기 조절) ===== */
+#ee-modal { position: fixed; z-index: 4000; display: flex; flex-direction: column; min-width: 300px; min-height: 240px; box-sizing: border-box;
+  background: var(--SmartThemeBlurTintColor, #1b1b1f); color: var(--SmartThemeBodyColor, #ddd);
+  border: 1px solid var(--SmartThemeBorderColor, #555); border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,.5); overflow: hidden; }
+#ee-modal .ee-bar { display: flex; align-items: center; gap: 8px; padding: 8px 12px; cursor: move; user-select: none; -webkit-user-select: none; touch-action: none;
+  border-bottom: 1px solid var(--SmartThemeBorderColor, #555); background: rgba(127,127,127,.14); flex: 0 0 auto; }
+#ee-modal .ee-bodywrap { flex: 1 1 auto; overflow: auto; padding: 10px 14px 28px; }
+#ee-modal .ee-grip { position: absolute; right: 0; bottom: 0; width: 26px; height: 26px; cursor: nwse-resize; touch-action: none; z-index: 8;
+  background: linear-gradient(135deg, transparent 55%, rgba(255,255,255,.6) 55% 62%, transparent 62% 72%, rgba(255,255,255,.6) 72% 79%, transparent 79%); }
+
+.ee-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.ee-row.tight { margin: 4px 0; }
+.ee-hint { font-size: .85em; opacity: .7; margin: 4px 0; }
+.ee-lbl { display: block; font-size: .85em; opacity: .85; margin: 8px 0 3px; }
+.ee-top { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+.ee-card { width: 130px; max-width: 30%; border-radius: 8px; border: 1px solid var(--SmartThemeBorderColor, #444); cursor: zoom-in; object-fit: cover; }
+.ee-col { flex: 1 1 260px; min-width: 0; }
+#ee-modal textarea, #ee-modal input[type=text], #ee-modal select { width: 100%; box-sizing: border-box; background: rgba(127,127,127,.12); color: inherit; border: 1px solid var(--SmartThemeBorderColor, #555); border-radius: 6px; padding: 6px 8px; font: inherit; }
+#ee-modal select { width: auto; max-width: 100%; }
+#ee-modal .ee-name { width: 130px; }
+.ee-btn { background: rgba(127,127,127,.2); color: inherit; border: 1px solid var(--SmartThemeBorderColor, #555); border-radius: 8px; padding: 7px 12px; cursor: pointer; font: inherit; white-space: nowrap; }
+.ee-btn.sm { padding: 4px 9px; font-size: .9em; }
+.ee-btn.primary { background: var(--SmartThemeQuoteColor, #4a7); color: #fff; border-color: transparent; }
+.ee-btn.danger { background: #a33; color: #fff; border-color: transparent; }
+.ee-btn:disabled { opacity: .45; cursor: not-allowed; }
+.ee-ck { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.ee-more { margin: 8px 0; border: 1px solid var(--SmartThemeBorderColor, #444); border-radius: 8px; padding: 6px 10px; }
+.ee-more summary { cursor: pointer; font-weight: 600; }
+.ee-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0; }
+.ee-chip { background: rgba(127,127,127,.15); color: inherit; border: 1px solid var(--SmartThemeBorderColor, #555); border-radius: 999px; padding: 3px 10px; cursor: pointer; font-size: .88em; }
+.ee-chip.on { background: var(--SmartThemeQuoteColor, #4a7); color: #fff; border-color: transparent; }
+.ee-prog { min-height: 1.4em; font-size: .9em; opacity: .85; }
+.ee-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
+.ee-th { position: relative; margin: 0; border: 1px solid var(--SmartThemeBorderColor, #444); border-radius: 8px; overflow: hidden; background: repeating-conic-gradient(rgba(127,127,127,.22) 0% 25%, transparent 0% 50%) 50% / 14px 14px; }
+.ee-th img { display: block; width: 100%; aspect-ratio: 3/4; object-fit: contain; cursor: zoom-in; }
+.ee-th figcaption { text-align: center; font-size: .8em; padding: 2px 0; background: rgba(0,0,0,.55); color: #fff; }
+.ee-th button { position: absolute; width: 22px; height: 22px; border-radius: 50%; border: 0; background: rgba(0,0,0,.65); color: #fff; cursor: pointer; line-height: 22px; padding: 0; font-size: 12px; }
+.ee-x { right: 3px; top: 3px; } .ee-rg { left: 3px; top: 3px; } .ee-cutb { left: 3px; top: 29px; }
+.ee-zoom { position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,.85); display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
+.ee-zoom img { max-width: 94vw; max-height: 94vh; background: repeating-conic-gradient(#666 0% 25%, #888 0% 50%) 50% / 18px 18px; }
+
+/* ===== 배경 · 가장자리 조절 (창 안쪽에 덮어 열려요) ===== */
+.ee-edge { position: absolute; left: 0; right: 0; bottom: 0; top: 41px; z-index: 6; overflow: auto; background: var(--SmartThemeBlurTintColor, #1b1b1f); padding: 10px 14px 30px; }
+.ee-cvwrap { display: flex; justify-content: center; padding: 8px; border-radius: 8px; border: 1px solid var(--SmartThemeBorderColor, #444); margin: 6px 0; }
+.ee-cv { max-width: 100%; max-height: 52vh; object-fit: contain; }
+.ee-cvwrap.bg-checker { background: repeating-conic-gradient(#666 0% 25%, #888 0% 50%) 50% / 18px 18px; }
+.ee-cvwrap.bg-black { background: #000; } .ee-cvwrap.bg-white { background: #fff; } .ee-cvwrap.bg-green { background: #12b34a; }
+.ee-sliders { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 16px; margin: 8px 0; }
+.ee-sl { display: flex; flex-direction: column; gap: 2px; font-size: .9em; }
+.ee-sl input[type=range] { width: 100%; }
+
+/* ===== 확장 설정 패널 ===== */
+.ee-set { display: flex; flex-direction: column; gap: 8px; }
+.ee-set label { display: flex; flex-direction: column; gap: 3px; font-size: .9em; }
+.ee-set .checkbox_label { flex-direction: row; align-items: center; gap: 6px; }
+.ee-setrow { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px; }
+/* 버튼이 세로로 늘어나거나 글자가 세로로 쌓이는 문제 방지 */
+#ee-settings .menu_button { width: auto !important; min-width: max-content !important; white-space: nowrap !important; flex: 0 0 auto !important; flex-direction: row !important;
+  word-break: keep-all !important; writing-mode: horizontal-tb !important; align-self: flex-start !important; height: auto !important; display: inline-flex !important; align-items: center; justify-content: center; padding: 6px 12px; }
+#ee-settings .menu_button.ee-disabled { opacity: .45; pointer-events: none; }
