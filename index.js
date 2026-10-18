@@ -332,7 +332,7 @@
     geminiKey: '', geminiModel: DEFAULT_MODEL, llmProfile: '',
     imgGapSec: 6,
     cutout: true, cutTol: 34, edgeFringe: 30, edgeShrink: 1, edgeSoft: 1, holeTol: 0, keepOrig: true,
-    stylePreset: 'custom', styleText: 'visual novel character sprite, clean lines, high detail', stylePresets: [], customText: '', negative: '',
+    stylePreset: 'custom', styleText: '', stylePresets: [], customText: '', negative: '',
     overwrite: false, emosDefault: [...SET6],
     chars: {},        // 캐릭터별: { outfit, emos, ref(직접 고른 기준 사진 경로) }
     appearance: {},   // 캐릭터별 외형 태그: { [avatar]: { h, t, manual } }   (장면 생성기와 같은 구조)
@@ -344,7 +344,6 @@
   /* ================= 저장소/유틸 ================= */
   const esc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const sleepMs = (ms) => new Promise((r) => setTimeout(r, ms));
   const uid = () => 'p' + Math.random().toString(36).slice(2, 9);
   const hash = (s) => { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) | 0; return (h >>> 0).toString(36); };
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -913,7 +912,7 @@ ${text.slice(0, 3000)}`, tl("외형 추출 · ") + ch.name)).trim().replace(/\s*
     const outfit = d.outfit?.trim() || "the character's signature default outfit (as in the reference)";
     const neg = String(s.negative || '').trim().replace(/\s*\n+\s*/g, ', ');
     const prompt = `${notes.join(' ')}
-Generate one image: a visual novel character sprite, waist-up portrait of "${ch.name}" (${look || 'as in the reference'}). Outfit: ${outfit}. Expression and pose: ${EMO_DESC[emo] || emo}. Natural, expressive, candid body language and a slight three-quarter angle, NOT a stiff straight-on attention stance. Rendering style: ${String(s.styleText || '').trim()}. Match EXACTLY the rendering style, level of realism, lighting and color grading of the reference image (if the reference is photorealistic, make this photorealistic too, NOT anime or illustration). Background: plain flat solid pure white, no floor, no shadow, no gradient, no props behind. Single character, no text, no UI, no watermark.${neg ? `
+Generate one image: a visual novel character sprite, waist-up portrait of "${ch.name}" (${look || 'as in the reference'}). Outfit: ${outfit}. Expression and pose: ${EMO_DESC[emo] || emo}. Natural, expressive, candid body language and a slight three-quarter angle, NOT a stiff straight-on attention stance. ${String(s.styleText || '').trim() ? `Rendering style: ${String(s.styleText).trim()}. ` : ''}Match EXACTLY the rendering style, level of realism, lighting and color grading of the reference image (if the reference is photorealistic, make this photorealistic too, NOT anime or illustration). Background: plain flat solid pure white, no floor, no shadow, no gradient, no props behind. Single character, no text, no UI, no watermark.${neg ? `
 Avoid: ${neg}.` : ''}`;
     const { b64, mime } = await geminiImage(prompt, refs, '3:4', `${ch.name}·${emo}`, st.abort?.signal);
     if (s.keepOrig && s.cutout) await saveOrig(ch, emo, b64, mime);
