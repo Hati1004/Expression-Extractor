@@ -1,58 +1,70 @@
-# 🎭 Expression Extractor · 표정 추출기 (SillyTavern) 1.2.0
+# 🎭 Expression Extractor (SillyTavern extension)
 
-캐릭터 카드에서 외형을 읽고, Gemini로 감정별 표정 이미지를 만들어서 **SillyTavern 표정 스프라이트 폴더에 자동으로 저장**하는 확장이에요.
-저장 위치는 `characters/<캐릭터 이름>/<감정>.png` (예: `characters/Mina/joy.png`)이라서 기본 *Character Expressions* 확장이 그대로 읽어요. 하나씩 업로드할 필요가 없어요.
+Reads a character card, generates one image per emotion with Gemini, optionally removes the background, and saves each result **straight into SillyTavern's expression sprite folder** — `characters/<character name>/<emotion>.png`. The built-in *Character Expressions* extension picks them up as-is; no manual uploading.
 
-## 설치
-`SillyTavern/data/<유저>/extensions/expression-extractor/` 에 폴더째 넣거나 GitHub 주소로 설치 → 새로고침.
-Scene Studio(장면 생성기)를 쓰고 있다면 확장 설정의 **Scene Studio 설정 가져오기**로 API 키, 텍스트 모델 프로필, 화풍 프리셋, 제외 요소, 외형 태그를 한 번에 가져올 수 있어요. (이미지 모델은 가져오지 않고 기본값을 유지해요.)
+(한국어 설명은 [README.ko.md](README.ko.md)를 보세요.)
 
-## 확장 설정 (확장 프로그램 → 표정 추출기)
-사용 체크박스 · 열기 · Scene Studio 설정 가져오기 · 이미지 모델(기본 `gemini-3.1-flash-image`) · 텍스트 모델(연결 프로필) · 이미지 제공자 · API 키 · 연결 테스트
+## Features
+- **28 emotions**, the same names as ST's expressions extension. `neutral` is made first and used as the reference for the rest.
+- **Appearance tags** extracted from the card description by your text model (one call per character, cached; your manual edits are locked in).
+- **Style prompt presets** and an **excluded-elements** field.
+- **Base photo**: use the card PNG, or pick any other image as the reference.
+- **Background removal + edge tuning** with a live preview (white-fringe removal, shrink, soften, optional enclosed-gap removal). Originals are kept so tuning is non-destructive.
+- **Floating window** you can drag and resize, with **Expressions / Settings / Log** tabs.
+- **Progress pill with a Cancel button** that stays visible even if you close the window (also draggable).
+- **Call log** (call counts, real image tokens, 429 retries).
+- **Same-name characters** can be given their own sprite folders.
+- **English and Korean UI** (Settings → Language: Auto / 한국어 / English).
+- Import API key, text-model profile, style presets, excluded elements and appearance tags from **Scene Studio**.
 
-이미지는 **Agent Platform API(구 Vertex AI) API 키 전용(express) 방식**으로만 호출해요. 프로젝트 ID·리전은 쓰지 않아요.
+## Install
+Copy the folder to `SillyTavern/data/<user>/extensions/expression-extractor/` (or install from the repository URL) and reload SillyTavern. Built against the current SillyTavern release; the manifest asks for 1.12.0 or newer.
 
-## 창 (마법봉 메뉴 → 표정 추출기)
-제목줄을 끌어서 옮기고, 오른쪽 아래 모서리를 끌어서 크기를 바꿀 수 있어요. 위치와 크기는 저장돼요.
+## Setup
+*Extensions → Expression Extractor*: turn on **Enable**, paste a **Google Cloud API key**, and press **Test connection**. Requests use the **Agent Platform API (formerly Vertex AI) in API-key-only mode**. The default image model is `gemini-3.1-flash-image`.
+Optionally pick a **text model (connection profile)** for appearance extraction; if left empty, the model connected to the chat is used.
 
-### [표정] 탭
-1. 캐릭터 선택. 창을 열 때 SillyTavern에서 지금 선택된 캐릭터로 맞춰져요. 창이 열려 있는 동안 ST에서 캐릭터를 바꾸면 따라가고, 창에서 직접 고른 캐릭터는 ST가 그대로면 유지돼요. (생성 중에는 바꾸지 않아요.)
-2. **기준 사진**: 기본은 카드 PNG예요. **사진 바꾸기**로 다른 이미지를 올리면 이후 표정을 그 사진 기준으로 만들어요. **카드 PNG로**로 되돌릴 수 있어요. (카드 파일 자체는 바뀌지 않아요.)
-3. **외형 태그**: 카드 설명 → 텍스트 모델 → 영어 태그 한 줄. 카드 설명이 안 바뀌면 저장된 걸 다시 쓰고, 직접 고치면 고정돼요. **Scene Studio에서 외형 가져오기**를 누르면 장면 생성기에 이미 추출된 이 캐릭터의 태그를 텍스트 호출 없이 가져와요.
-4. **화풍 프롬프트 · 제외 요소**: 화풍은 프리셋 저장/선택/삭제가 돼요. 두 칸 모두 모서리를 끌어서 세로로 늘릴 수 있어요. 제외 요소는 줄을 바꿔 적어도 한 줄로 합쳐서 보내요.
-5. 만들 표정 선택 (기본 6 / 핵심 10 / 전체 28) → **선택한 표정 만들기**. neutral을 먼저 만들어 기준으로 삼고 나머지는 한 장씩 천천히 만들어요. 끝나면 확인 없이 바로 스프라이트 폴더에 저장돼요.
-6. 만든 표정의 ↻ 다시 생성 · ✂ 배경/가장자리 조절 · ✕ 삭제
+## Usage
+Open it from the wand menu → **Expression Extractor**.
 
-### [설정] 탭
-이미지 요청 간격 · 배경 제거 · 원본 보관 · 배경 민감도 · 흰 테두리 제거 · 가장자리 줄이기 · 가장자리 부드럽게. 값은 모두 숫자로 입력해요. 범위를 벗어나면 가장 가까운 값으로 맞춰져요.
+**Expressions tab**
+1. The window follows the character selected in ST. Names that collide with another character are shown as `Name · file.png`.
+2. Check the base photo and the appearance tags (edit them if you like). **Import appearance from Scene Studio** copies tags that Scene Studio already extracted, with no text call.
+3. Pick the expressions to make (`Basic 6`, `Core 10`, `All 28`, or individually). Chips are **yellow** if the expression already exists, **green** if it will be made now, and yellow with a green border if it is selected but will be skipped (turn on *overwrite* to remake it).
+4. Press **Make selected expressions**. Each image is saved to the sprite folder as soon as it is done. Sprites are listed with `neutral` first, then in the same order as the chips.
+5. On each sprite: **↻** regenerate · **✂** background/edge tuning · **✕** delete.
 
-### [기록] 탭
-텍스트/이미지 호출 횟수와 토큰, 429 재시도 횟수, 언제 호출되는지 설명, 최근 호출 목록(성공/429 재시도/취소/실패). 이미지 토큰은 Google이 알려 준 실제 값이고, 텍스트 토큰은 글자 수로 추정한 값(≈)이에요.
+> ST's expressions extension re-reads the sprite list when a chat opens. If new expressions don't show up right away, reopen the chat.
 
-## 생성 중 알림과 취소
-표정을 만드는 동안에는 창을 닫아도 화면 위쪽에 작은 알림("표정 생성 3/6 · 캐릭터 · joy")과 **취소** 버튼이 떠요. 알림은 끌어서 옮길 수 있고 위치는 저장돼요. 글자를 짧게 누르면 창이 다시 열려요.
-취소하면 진행 중인 요청을 바로 끊고 남은 표정은 만들지 않아요. 이미 Google에 전달된 요청은 서버에서 계속돼 요금이 나올 수 있어요.
+**Settings tab** — language, image request interval, background removal, original keeping, background sensitivity, enclosed-gap removal, white-fringe removal, edge shrink/soften, and data cleanup. All values are plain numbers.
 
-## 배경 제거 · 가장자리 조절
-생성된 이미지는 흰 배경에서 가장자리부터 배경색만 지워 투명 PNG로 저장돼요.
+**Log tab** — text/image call counts and tokens, when calls are made, and the most recent calls.
 
-| 값 | 하는 일 |
-|---|---|
-| 배경 민감도 (10~80) | 클수록 배경색과 덜 비슷해도 지워요 |
-| 흰 테두리 제거 (0~100) | 인물 가장자리에 남은 흰/연한 띠를 3픽셀 깊이까지 지워요 |
-| 가장자리 줄이기 (0~6px) | 경계를 안쪽으로 깎아요. 이미지 끝에 닿은 부분은 그대로예요 |
-| 가장자리 부드럽게 (0~3px) | 경계를 흐리게 해서 계단을 줄여요 |
+## Background removal and its limits
+Removal starts from the image border and erases only background-coloured pixels that connect to it. That is fast and safe for the character, but it means:
+- **Gaps that are enclosed** (between an arm and the torso, inside a hair loop) are not connected to the border and stay opaque white by default. Turn on **Remove enclosed gaps** to erase them. It also erases any large pure-white area of the character (white clothing), so it is off by default — check the ✂ preview.
+- **Fine hair strands** are blended with the white background and cannot be separated perfectly without a real matting model. Use *Remove white fringe*, *Shrink edge* and *Soften edge* to hide the rim.
 
-"원본 보관"을 켜 두면(기본) ✂ 창에서 조절할 때 **배경 제거 전 원본에서 다시 계산**해서 몇 번이든 되돌릴 수 있어요. 원본은 `user/images/expression-extractor/`에 저장돼요.
+## Same-name characters
+ST stores expression sprites by **character name**, so two characters with the same name share one folder and their expressions get mixed (this is how ST's own extension behaves). When that happens a warning and a **dedicated folder** button appear. It sets `characters/<name>_<avatar file>/` and registers it as ST's *Sprite folder override*, so chat reads the right folder too. *Back to shared folder* undoes it.
 
-## 이름이 같은 캐릭터
-SillyTavern 표정 폴더는 **캐릭터 이름**으로 정해져서, 이름이 같은 캐릭터끼리는 표정이 섞여요. (ST 기본 표정 확장도 같아요.)
-- 목록에는 `Mina · Mina.png`처럼 파일 이름이 함께 보여요.
-- 같은 폴더를 쓰는 캐릭터가 있으면 경고와 **이 캐릭터 전용 폴더로 분리** 버튼이 떠요. 누르면 `characters/<이름>_<아바타 파일명>/` 폴더를 따로 쓰고, ST 표정 확장의 "폴더 덮어쓰기"로 등록돼서 채팅에서도 그 폴더를 읽어요.
-- 같은 폴더에 이미 표정이 있는 상태에서 표정을 만들면 분리할지 물어봐요.
-- 기존 공유 폴더의 표정은 지우지 않고 그대로 남겨요. **공유 폴더로 되돌리기**로 해제할 수 있어요.
+## Data, privacy and cleanup
+**What is sent where**
+- To **Google (aiplatform.googleapis.com)**: the generation prompt (appearance tags, outfit, style, excluded elements, the emotion pose text) and reference images (the card PNG or your chosen base photo, and the `neutral` sprite). This is the only external host the extension contacts.
+- To **your connected text model** (through ST): the card's description and personality, once per character, to extract appearance tags.
+- No analytics, no telemetry, no other network calls.
 
-## 참고
-- 스프라이트 폴더는 캐릭터 이름이에요. ST 표정 확장의 "스프라이트 폴더 덮어쓰기"를 쓰면 그 경로를 따라가요.
-- 표정을 다 만들면 [표정] 탭의 진행 문구 옆에 "ST 표정 확장은 채팅을 열 때 목록을 새로 읽으니, 바로 안 보이면 채팅을 다시 열어 보세요."가 함께 떠요.
-- 키는 `settings.json`에 평문으로 저장돼요. 이미지 1장 = 이미지 API 1회 호출(요금 발생)이에요.
+**What is stored**
+- `settings.json` (extension settings): API key **in plain text**, appearance tags, presets, call log (character names and emotion labels, last 100 entries), window position. Never share this file.
+- Server folder `user/images/expression-extractor/`: kept originals (before background removal) and base photos you picked.
+- `characters/<name>/…`: the sprites themselves — your content. The extension only touches them when you generate, regenerate, tune or delete (✕) one.
+
+**Cleanup** (Settings tab → *Data cleanup*)
+- Deleting a sprite, regenerating it, or changing/resetting the base photo also deletes the matching kept file.
+- **Clean up unused files** removes files nothing refers to and settings of characters deleted from ST.
+- **Delete all kept originals** removes every kept original.
+- **Delete all data of this extension** removes the files in `user/images/expression-extractor/` and this extension's settings (API key, log, …). Run it before uninstalling.
+- Things ST does not let an extension remove: the (empty) folders `characters/<name>/` and `user/images/expression-extractor/` after their files are deleted, and any *Sprite folder override* entries created by the dedicated-folder button.
+
+## License
+Choose a license before publishing (for example MIT) and add a `LICENSE` file.

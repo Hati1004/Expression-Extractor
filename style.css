@@ -111,3 +111,11 @@
 /* ===== 여러 줄 입력칸은 세로로 끌어서 늘릴 수 있어요 ===== */
 #ee-modal textarea { resize: vertical; min-height: 2.6em; }
 .ee-warn { font-size: .85em; color: #ffb86b; }
+
+/* ===== 표정 칩: 이미 만든 표정은 연한 노란색 ===== */
+.ee-chip.has { background: #fff3b0; color: #3b3000; border-color: #e3c64d; }
+.ee-chip.on.has { background: #fff3b0; color: #3b3000; border-color: transparent; box-shadow: inset 0 0 0 2px var(--SmartThemeQuoteColor, #3fae6a); }
+.ee-lg { display: inline-block; padding: 0 8px; border-radius: 999px; border: 1px solid var(--SmartThemeBorderColor, #555); font-size: .95em; }
+.ee-lg.has { background: #fff3b0; color: #3b3000; border-color: #e3c64d; }
+.ee-lg.on { background: var(--SmartThemeQuoteColor, #4a7); color: #fff; border-color: transparent; }
+.ee-lg.both { background: #fff3b0; color: #3b3000; border-color: transparent; box-shadow: inset 0 0 0 2px var(--SmartThemeQuoteColor, #3fae6a); }
