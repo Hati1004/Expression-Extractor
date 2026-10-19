@@ -2,7 +2,7 @@
 
 캐릭터 카드에서 외형을 읽고, Gemini로 감정별 표정 이미지를 만들고, (선택) 배경을 지운 뒤 **SillyTavern 표정 스프라이트 폴더에 바로 저장**해요. 저장 위치는 `characters/<캐릭터 이름>/<감정>.png`라서 기본 *Character Expressions* 확장이 그대로 읽어요. 하나씩 업로드할 필요가 없어요.
 
-(English: see [README.md](README.md).)
+(English: see [README.eg.md](README.eg.md).)
 
 ## 기능
 - ST 표정 확장과 같은 **28개 감정**. `neutral`을 먼저 만들어 나머지의 기준으로 써요.
@@ -65,3 +65,7 @@ ST는 표정 스프라이트를 **캐릭터 이름**으로 저장해서, 이름�
 - **보관한 원본 모두 삭제**: 보관한 원본을 전부 지워요.
 - **이 확장의 모든 데이터 삭제**: `user/images/expression-extractor/`의 파일과 이 확장의 설정(API 키, 기록 등)을 지워요. 확장을 지우기 전에 실행하세요.
 - ST가 확장에게 지우게 허용하지 않는 것: 파일을 지운 뒤에 남는 빈 폴더(`characters/<이름>/`, `user/images/expression-extractor/`), 전용 폴더 버튼이 만든 *폴더 덮어쓰기* 항목.
+
+**확장 삭제시**
+- 표정 추출기 탭의 설정 아래에서 확장의 모든 데이터 삭제 클릭 (user/images/expression-extractor/의 파일과 이 확장의 설정 API 키, 기록 등)을 지워요. 확장을 지우기 전에 실행하세요.
+- 확장 삭제 후 SillyTavern\data\default-user\user\images\expression-extractor 폴더 삭제 / 다운로드한 본인 위치\SillyTavern\data\default-user\characters\캐릭터 폴더 삭제
