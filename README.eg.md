@@ -2,7 +2,7 @@
 
 Reads a character card, generates one image per emotion with Gemini, optionally removes the background, and saves each result **straight into SillyTavern's expression sprite folder** — `characters/<character name>/<emotion>.png`. The built-in *Character Expressions* extension picks them up as-is; no manual uploading.
 
-(한국어 설명은 [README.ko.md](README.ko.md)를 보세요.)
+(한국어 설명은 [README.md](README.md)를 보세요.)
 
 ## Features
 - **28 emotions**, the same names as ST's expressions extension. `neutral` is made first and used as the reference for the rest.
@@ -65,3 +65,9 @@ ST stores expression sprites by **character name**, so two characters with the s
 - **Delete all kept originals** removes every kept original.
 - **Delete all data of this extension** removes the files in `user/images/expression-extractor/` and this extension's settings (API key, log, …). Run it before uninstalling.
 - Things ST does not let an extension remove: the (empty) folders `characters/<name>/` and `user/images/expression-extractor/` after their files are deleted, and any *Sprite folder override* entries created by the dedicated-folder button.
+
+**Uninstall**
+- Before uninstalling, go to the Expression Extractor tab and click Delete All Extension Data at the bottom of the settings. This will delete all files in `user/images/expression-extractor/`, along with the extension's settings, API keys, history, and other stored data. Make sure to do this before removing the extension.
+- After uninstalling, manually delete the following folders:
+`SillyTavern\data\default-user\user\images\expression-extractor` and
+`SillyTavern\data\default-user\characters\Character Folder`
