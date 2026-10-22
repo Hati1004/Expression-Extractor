@@ -221,8 +221,8 @@
     "쓰지 않는 파일 {0}개를 지우고, 삭제된 캐릭터의 설정 {1}개를 정리했어요.": "Deleted {0} unused file(s) and cleaned up {1} setting(s) for deleted characters.",
     "보관한 원본 {0}개를 모두 삭제해요.\n이후 ✂ 가장자리 조절은 지금 저장된 이미지를 기준으로 해요. 계속할까요?": "This deletes all {0} kept originals.\nAfterwards, ✂ edge tuning uses the currently saved image as the base. Continue?",
     "보관한 원본 파일 {0}개를 지웠어요.": "Deleted {0} kept original file(s).",
-    "이 확장의 모든 데이터를 삭제해요.\n\n- API 키, 호출 기록, 외형 태그, 화풍 프리셋, 창 위치 등 설정 전체\n- 서버에 보관한 원본/기준 사진 파일 전체\n\n만든 표정 스프라이트(characters/…)와 ST 표정 확장의 \"폴더 덮어쓰기\"는 그대로 남아요.\n확장을 지우기 전에 쓰는 기능이에요. 계속할까요?": "This deletes all data of this extension.\n\n- All settings such as API key, call log, appearance tags, style presets and window position\n- All original/base-photo files kept on the server\n\nThe expression sprites you made (characters/…) and the ST expressions extension's \"Sprite folder override\" are left as they are.\nUse this before uninstalling the extension. Continue?",
-    "모든 데이터를 삭제했어요. (서버 파일 {0}개)": "Deleted all data. ({0} server file(s))",
+    "이 확장의 모든 데이터를 삭제해요.\n\n- API 키, 호출 기록, 외형 태그, 화풍 프리셋, 창 위치 등 설정 전체\n- 서버에 보관한 원본/기준 사진 파일 전체\n\n만든 표정 스프라이트(characters/…)와 ST 표정 확장의 \"폴더 덮어쓰기\"는 그대로 남아요.\n스프라이트도 지우려면 이 버튼보다 먼저 \"스프라이트 삭제\"를 쓰세요. 이 버튼을 누르면 어떤 폴더가 이 확장으로 만든 것인지 기억도 지워져요.\n확장을 지우기 전에 쓰는 기능이에요. 계속할까요?": "This deletes all data of this extension.\n\n- All settings such as API key, call log, appearance tags, style presets and window position\n- All original/base-photo files kept on the server\n\nThe expression sprites you made (characters/…) and the ST expressions extension's \"Sprite folder override\" are left as they are.\nTo delete the sprites too, use \"Delete sprites\" before this button. Pressing this button also erases the memory of which folders this extension made.\nUse this before uninstalling the extension. Continue?",
+    "모든 데이터를 삭제했어요. (서버 파일 {0}개) 확장을 지우거나, 계속 쓰려면 페이지를 새로고침하세요.": "Deleted all data. ({0} server file(s)) Now remove the extension, or reload the page to keep using it.",
     "정리하지 못했어요: ": "Couldn't clean up: ",
     "호출 기록과 누적 횟수를 모두 지울까요?": "Clear the call log and all totals?",
     "이 값을 기본값으로 저장했어요. 앞으로 만드는 표정에 적용돼요. (설정 탭에서도 바꿀 수 있어요)": "Saved these values as defaults. They apply to expressions you make from now on. (You can also change them in the Settings tab.)",
@@ -275,6 +275,61 @@
     "경계를 안쪽으로 깎아서 남은 테두리를 없애요. 값이 크면 인물이 얇아져 보여요.": "Cuts the outline inward to get rid of any leftover rim. Large values make the character look thinner.",
     "가장자리 부드럽게 (px)": "Soften edge (px)",
     "경계를 흐리게 해서 계단을 줄여요. 값이 크면 윤곽이 번져 보일 수 있어요.": "Blurs the outline to reduce jagged steps. Large values can make the outline look fuzzy.",
+    "⚠ ST 표정 확장의 대체 표정은 \"{0}\"인데 이 캐릭터에는 그 스프라이트가 없어요. 답변에서 고른 감정의 표정이 없으면 이미지가 비어 보여요.": "⚠ The ST expressions extension's fallback expression is \"{0}\", but this character has no {0} sprite. When the emotion picked from the reply has no sprite, the image area stays blank.",
+    "⚠ ST 표정 확장에 대체 표정이 설정돼 있지 않아요. 답변에서 고른 감정의 표정이 없으면 이미지가 비어 보여요.": "⚠ No fallback expression is set in the ST expressions extension. When the emotion picked from the reply has no sprite, the image area stays blank.",
+    "ST 표정 확장의 'Default / Fallback Expression'을 neutral로 바꿔요": "Changes 'Default / Fallback Expression' in the ST expressions extension to neutral",
+    "neutral을 대체 표정으로 설정": "Set neutral as the fallback expression",
+    "neutral 표정을 먼저 만들면 대체 표정으로 쓸 수 있어요.": "Make the neutral expression first, then you can use it as the fallback.",
+    "ST 표정 확장의 대체 표정을 {0}로 바꿨어요. 바로 안 바뀌면 채팅을 다시 열어 보세요.": "Changed the ST expressions extension's fallback expression to {0}. If it doesn't change right away, reopen the chat.",
+    "점검하는 중…": "Checking…",
+    "ST의 Character Expressions 확장이 꺼져 있어요. 켜야 표정이 표시돼요.": "ST's Character Expressions extension is turned off. Turn it on to show expressions.",
+    "ST 화면에서 스프라이트 상자(expression-holder)를 찾지 못했어요. Character Expressions 확장이 설치/활성화돼 있는지 확인해 주세요.": "Couldn't find ST's sprite box (expression-holder) on the page. Check that the Character Expressions extension is installed and enabled.",
+    "ST Character Expressions 확장이 켜져 있어요.": "ST's Character Expressions extension is on.",
+    "폴더 characters/{0}/ 에서 스프라이트를 하나도 찾지 못했어요. ST가 읽는 폴더 이름이 이 캐릭터 이름과 다른지 확인해 주세요.": "No sprites found in characters/{0}/. Check whether the folder ST reads differs from this character's name.",
+    "폴더 characters/{0}/ 에서 스프라이트 {1}장을 찾았어요.": "Found {1} sprite(s) in characters/{0}/.",
+    "불러오지 못하는 파일: {0}": "Files that failed to load: {0}",
+    "모든 파일이 서버에서 정상적으로 받아져요.": "All files load fine from the server.",
+    "{0} 이미지 크기: {1}×{2}": "{0} image size: {1}×{2}",
+    "{0} 이미지를 브라우저가 열지 못했어요.": "The browser couldn't open the {0} image.",
+    "ST 스프라이트 상자: display={0}, 크기 {1}×{2}px": "ST sprite box: display={0}, size {1}×{2}px",
+    "ST의 스프라이트 이미지에 주소가 비어 있어요. ST가 최근 답변에 맞는 표정을 아직 고르지 못했거나, 고른 표정의 스프라이트를 찾지 못한 상태예요.": "The sprite image in ST has no address. ST hasn't picked an expression for the latest reply yet, or couldn't find a sprite for the one it picked.",
+    "ST가 지금 쓰는 이미지: {0} ({1}×{2}, {3})": "Image ST is using now: {0} ({1}×{2}, {3})",
+    "불러옴": "loaded",
+    "불러오는 중 또는 실패": "loading or failed",
+    "Visual Novel(와이프) 모드: {0} · 대체 표정: {1} · 분류 방식: {2}": "Visual Novel (Waifu) mode: {0} · fallback expression: {1} · classifier: {2}",
+    "켜짐": "On",
+    "꺼짐": "Off",
+    "기본 이모지": "default emoji",
+    "없음": "none",
+    "모바일 화면에서는 ST가 Visual Novel(와이프) 모드를 켰을 때만 스프라이트를 보여줘요.": "On a mobile screen, ST only shows sprites when Visual Novel (Waifu) mode is on.",
+    "ST에서 표정이 안 보여요? 점검": "Expressions not showing in ST? Run a check",
+    "ST 화면에서 표정이 비어 보일 때 어디에서 막히는지 확인해요. 결과를 캡처해서 공유하면 원인을 찾는 데 도움이 돼요.": "Checks where things get stuck when ST shows no expression. Share a screenshot of the result to help find the cause.",
+    "점검하기": "Run check",
+    "Local (영어 전용 모델)": "Local (English-only model)",
+    "분류 전에 영어로 번역: {0}": "Translate to English before classification: {0}",
+    "마지막 답변이 영어가 아니에요. ST의 기본 표정 분류기는 영어 전용이라 감정을 잘못 고르거나 만들지 않은 표정을 고를 수 있어요. \"Translate text to English before classification\"을 켜거나 분류 방식(Classifier API)을 \"Main API\"로 바꿔 보세요.": "The latest reply isn't in English. ST's default expression classifier is English-only, so it can pick the wrong emotion or one you haven't made. Turn on \"Translate text to English before classification\", or set the Classifier API to \"Main API\".",
+    "번역 후 분류 켜기": "Turn on translate-before-classification",
+    "번역 후 분류를 쓰려면 ST의 Chat Translation 확장을 켜고 번역 방식을 설정해야 해요.": "To use translate-before-classification, turn on ST's Chat Translation extension and choose a translation provider.",
+    "번역 후 분류가 켜져 있지만 Chat Translation 확장이 동작하지 않아서 번역되지 않아요.": "Translate-before-classification is on, but the Chat Translation extension isn't active, so nothing gets translated.",
+    "분류 방식이 Main API인데 만든 표정만 사용하는 옵션(Only show and use expressions that have sprites)이 꺼져 있어요. 표정을 일부만 만들었다면 켜 두면 만든 표정 중에서만 골라요.": "The Classifier API is Main API, but the option to only use expressions that have sprites is off. If you've made only some expressions, turn it on so it only picks from those.",
+    "번역 후 분류를 켰어요. 새 답변부터 적용돼요.": "Turned on translate-before-classification. It applies from the next reply.",
+    "스프라이트 삭제 (선택)": "Delete sprites (optional)",
+    "만든 표정 스프라이트(characters/…)는 ST 표정 확장이 쓰는 파일이라 아래 \"데이터 정리\" 버튼으로는 지워지지 않아요. 확장을 완전히 지울 때 여기서 골라서 지우세요. 지우면 되돌릴 수 없어요. \"이 확장의 모든 데이터 삭제\"보다 먼저 쓰세요.": "Expression sprites (characters/…) are files used by ST's expressions extension, so the \"Data cleanup\" buttons below don't delete them. When you remove the extension completely, choose and delete them here. This can't be undone. Use it before \"Delete all data of this extension\".",
+    "스프라이트 폴더 찾기": "Find sprite folders",
+    "찾는 중…": "Searching…",
+    "스프라이트가 들어 있는 폴더를 찾지 못했어요.": "No folders with sprites were found.",
+    "{0}장": "{0} file(s)",
+    "ST에 없는 캐릭터": "character no longer in ST",
+    "이 확장으로 만든 것으로 보여요": "looks made with this extension",
+    "그 외 (직접 올린 것일 수 있어요)": "other (may be uploaded by you)",
+    "선택한 스프라이트 삭제": "Delete selected sprites",
+    "파일을 지운 뒤에도 빈 폴더는 남아요(ST가 확장에게 폴더 삭제를 허용하지 않아요). 빈 폴더만 지우는 명령(Termux):": "Empty folders remain after the files are deleted (ST doesn't let an extension remove folders). Command that removes only empty folders (Termux):",
+    "선택: 폴더 {0}개, 스프라이트 {1}장": "Selected: {0} folder(s), {1} sprite file(s)",
+    "삭제할 폴더를 선택해 주세요.": "Select the folders to delete.",
+    "폴더 {0}개의 스프라이트 {1}장을 삭제해요.\n\n{2}\n\n이 확장으로 만든 전용 폴더 설정과 보관한 원본도 함께 지워요. 되돌릴 수 없어요. 계속할까요?": "This deletes {1} sprite file(s) in {0} folder(s).\n\n{2}\n\nThe dedicated-folder settings and kept originals made by this extension are removed too. This can't be undone. Continue?",
+    "삭제하는 중…": "Deleting…",
+    "스프라이트 {0}장을 삭제했어요. 빈 폴더는 남아요.": "Deleted {0} sprite file(s). Empty folders remain.",
+    "삭제하지 못한 파일 {0}개": "{0} file(s) couldn't be deleted",
   };
   const effLang = () => { const l = S().lang; return l === 'ko' || l === 'en' ? l : (String(navigator.language || '').toLowerCase().startsWith('ko') ? 'ko' : 'en'); };
   const missingKeys = new Set();
@@ -292,7 +347,7 @@
 
   /* ================= 상수 ================= */
   const EMO_DESC = {
-    neutral: 'relaxed natural standing pose, weight on one leg, one hand lightly holding the bag strap or hem, slight three-quarter body turn, soft calm face',
+    neutral: 'relaxed natural standing pose, weight on one leg, arms resting loosely at the sides or one hand lightly touching the hem of the clothes, slight three-quarter body turn, soft calm face',
     joy: 'laughing happily, leaning slightly forward, hands clasped near the chest, bright smile',
     sadness: 'head lowered, hugging their own arm, teary eyes, drooping shoulders',
     anger: 'arms crossed, sharp glare, one foot forward, furrowed brows',
@@ -332,6 +387,7 @@
     geminiKey: '', geminiModel: DEFAULT_MODEL, llmProfile: '',
     imgGapSec: 6,
     cutout: true, cutTol: 34, edgeFringe: 30, edgeShrink: 1, edgeSoft: 1, holeTol: 0, keepOrig: true,
+    folders: {},      // 이 확장이 스프라이트를 저장한 폴더 이름들 (스프라이트 삭제 때 찾는 용도)
     stylePreset: 'custom', styleText: '', stylePresets: [], customText: '', negative: '',
     overwrite: false, emosDefault: [...SET6],
     chars: {},        // 캐릭터별: { outfit, emos, ref(직접 고른 기준 사진 경로) }
@@ -348,7 +404,11 @@
   const hash = (s) => { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) | 0; return (h >>> 0).toString(36); };
   const $ = (sel, root = document) => root.querySelector(sel);
 
+  /* '모든 데이터 삭제' 뒤에는 설정 항목을 다시 만들지 않아요. (화면 문구를 그리는 것만으로도 항목이 되살아나 settings.json에 남을 수 있었어요)
+   * 새로고침하면 처음 상태로 다시 시작해요. */
+  let wiped = false, ghost = null;
   function S() {
+    if (wiped) return (ghost ||= structuredClone(defaults));
     const { extensionSettings } = ctx();
     if (!extensionSettings[MODULE]) extensionSettings[MODULE] = structuredClone(defaults);
     const s = extensionSettings[MODULE];
@@ -438,6 +498,7 @@
     const r = await fetch('/api/sprites/upload', { method: 'POST', headers: h, body: fd });
     if (!r.ok) throw new Error(tl("스프라이트 저장 실패 (") + r.status + ')');
     st.bust[label] = Date.now();
+    S().folders[folderOf(ch)] = Date.now(); save();   // 이 폴더에 썼다는 기록
   }
   async function deleteSprite(ch, label) {
     const r = await fetch('/api/sprites/delete', { method: 'POST', headers: jsonHeaders(), body: JSON.stringify({ name: folderOf(ch), label, spriteName: label }) });
@@ -495,8 +556,76 @@
   async function wipeAll() {
     let removed = 0;
     for (const f of await listOurImages()) if (await deleteImageFile(IMG_DIR + f)) removed++;
-    delete ctx().extensionSettings[MODULE]; save();
+    delete ctx().extensionSettings[MODULE]; wiped = true; save();
     return removed;
+  }
+
+  /* ================= 스프라이트 폴더 찾기 / 선택 삭제 =================
+   * ST는 확장이 폴더를 지우게 허용하지 않아서 '파일'만 지워요. (빈 폴더는 남아요) */
+  const spriteFileName = (pth) => { try { return decodeURIComponent(String(pth).split('?')[0].split('/').pop()).replace(/\.[^.]+$/, ''); } catch { return ''; } };
+  async function scanSpriteFolders() {
+    const s0 = S(), cand = new Map();
+    const known = new Set([...Object.keys(s0.chars), ...Object.keys(s0.appearance), ...Object.keys(s0.origs).map((k) => k.split('|')[0])]);
+    for (const c of chars()) {
+      const f = folderOf(c), e = cand.get(f) || { name: f, owners: [], mine: false, gone: false };
+      e.owners.push(c); if (known.has(c.avatar) || s0.folders[f]) e.mine = true; cand.set(f, e);
+    }
+    for (const f of Object.keys(s0.folders)) { const e = cand.get(f) || { name: f, owners: [], mine: true, gone: true }; e.mine = true; cand.set(f, e); }
+    const list = [...cand.values()], out = [];
+    for (let i = 0; i < list.length; i += 8) {   // 8개씩 묶어서 요청
+      await Promise.all(list.slice(i, i + 8).map(async (e) => {
+        let files = [];
+        try { const r = await fetch('/api/sprites/get?name=' + encodeURIComponent(e.name), { headers: jsonHeaders() }); files = r.ok ? await r.json() : []; } catch { files = []; }
+        files = (Array.isArray(files) ? files : []).map((x) => spriteFileName(x?.path)).filter(Boolean);
+        if (files.length) out.push({ ...e, files: [...new Set(files)] });
+      }));
+    }
+    return out.sort((a, b) => (b.mine - a.mine) || a.name.localeCompare(b.name));
+  }
+  /* 고른 폴더의 스프라이트 파일을 지우고, 이 확장이 만든 '전용 폴더' 덮어쓰기 항목과 보관한 원본도 함께 정리 */
+  async function deleteSpriteFolders(sel) {
+    let ok = 0, fail = 0;
+    for (const e of sel) {
+      const owners = chars().filter((c) => folderOf(c) === e.name);
+      for (const fn of e.files) {
+        try { const r = await fetch('/api/sprites/delete', { method: 'POST', headers: jsonHeaders(), body: JSON.stringify({ name: e.name, label: fn, spriteName: fn }) }); if (r.ok) ok++; else fail++; } catch { fail++; }
+      }
+      const ov = ctx().extensionSettings.expressionOverrides;
+      if (Array.isArray(ov)) for (let i = ov.length - 1; i >= 0; i--) if (ov[i]?.path === e.name && String(ov[i].path).endsWith('_' + ov[i].name)) ov.splice(i, 1);   // 전용 폴더 버튼이 만든 항목만
+      for (const c of owners) for (const k of Object.keys(S().origs)) if (k.startsWith(c.avatar + '|')) { const u = S().origs[k]; delete S().origs[k]; await deleteImageFile(u); }
+      delete S().folders[e.name];
+    }
+    save(); return { ok, fail };
+  }
+  function renderSpList() {
+    const box = root && $('#ee-splist', root); if (!box) return;
+    const L = st.spScan;
+    if (!L) { box.innerHTML = ''; return; }
+    if (!L.length) { box.innerHTML = `<p class="ee-hint">${esc(tl('스프라이트가 들어 있는 폴더를 찾지 못했어요.'))}</p>`; return; }
+    box.innerHTML = L.map((e, i) => `<label class="ee-sprow"><input type="checkbox" data-spf="${i}" ${e.sel ? 'checked' : ''}><span><b>${esc(e.name)}</b> · ${esc(tl('{0}장', [e.files.length]))} <small>${esc(e.gone ? tl('ST에 없는 캐릭터') : e.mine ? tl('이 확장으로 만든 것으로 보여요') : tl('그 외 (직접 올린 것일 수 있어요)'))}</small></span></label>`).join('')
+      + `<p class="ee-hint" id="ee-spsum"></p><div class="ee-row tight"><button class="ee-btn danger sm" data-act="sp-delete">${esc(tl('선택한 스프라이트 삭제'))}</button></div>`
+      + `<p class="ee-hint">${esc(tl('파일을 지운 뒤에도 빈 폴더는 남아요(ST가 확장에게 폴더 삭제를 허용하지 않아요). 빈 폴더만 지우는 명령(Termux):'))}<br><code>find ~/SillyTavern/data/default-user/characters -mindepth 1 -type d -empty -delete</code></p>`;
+    updateSpSummary();
+  }
+  function updateSpSummary() {
+    const sel = (st.spScan || []).filter((e) => e.sel), el = root && $('#ee-spsum', root);
+    if (el) el.textContent = tl('선택: 폴더 {0}개, 스프라이트 {1}장', [sel.length, sel.reduce((n, e) => n + e.files.length, 0)]);
+  }
+  async function runSpriteScan() {
+    const box = $('#ee-splist', root); if (box) box.innerHTML = `<p class="ee-hint">${esc(tl('찾는 중…'))}</p>`;
+    st.spScan = (await scanSpriteFolders()).map((e) => ({ ...e, sel: e.mine })); renderSpList();   // 이 확장으로 만든 것만 기본 선택
+  }
+  async function runSpriteDelete() {
+    if (st.busy) return say('info', tl('생성 중에는 정리할 수 없어요.'));
+    const sel = (st.spScan || []).filter((e) => e.sel), total = sel.reduce((n, e) => n + e.files.length, 0);
+    if (!sel.length) return say('info', tl('삭제할 폴더를 선택해 주세요.'));
+    if (!window.confirm(tl("폴더 {0}개의 스프라이트 {1}장을 삭제해요.\n\n{2}\n\n이 확장으로 만든 전용 폴더 설정과 보관한 원본도 함께 지워요. 되돌릴 수 없어요. 계속할까요?", [sel.length, total, sel.map((e) => '- ' + e.name).join('\n')]))) return;
+    const box = $('#ee-splist', root); if (box) box.innerHTML = `<p class="ee-hint">${esc(tl('삭제하는 중…'))}</p>`;
+    try {
+      const r = await deleteSpriteFolders(sel);
+      say(r.fail ? 'warning' : 'success', tl('스프라이트 {0}장을 삭제했어요. 빈 폴더는 남아요.', [r.ok]) + (r.fail ? ' ' + tl('삭제하지 못한 파일 {0}개', [r.fail]) : ''));
+      await runSpriteScan();
+    } catch (e) { say('error', tl("정리하지 못했어요: ") + (e.message || e)); await runSpriteScan(); }
   }
 
   /* ================= 호출 기록 (어디서 몇 번 나가는지) ================= */
@@ -912,7 +1041,7 @@ ${text.slice(0, 3000)}`, tl("외형 추출 · ") + ch.name)).trim().replace(/\s*
     const outfit = d.outfit?.trim() || "the character's signature default outfit (as in the reference)";
     const neg = String(s.negative || '').trim().replace(/\s*\n+\s*/g, ', ');
     const prompt = `${notes.join(' ')}
-Generate one image: a visual novel character sprite, waist-up portrait of "${ch.name}" (${look || 'as in the reference'}). Outfit: ${outfit}. Expression and pose: ${EMO_DESC[emo] || emo}. Natural, expressive, candid body language and a slight three-quarter angle, NOT a stiff straight-on attention stance. ${String(s.styleText || '').trim() ? `Rendering style: ${String(s.styleText).trim()}. ` : ''}Match EXACTLY the rendering style, level of realism, lighting and color grading of the reference image (if the reference is photorealistic, make this photorealistic too, NOT anime or illustration). Background: plain flat solid pure white, no floor, no shadow, no gradient, no props behind. Single character, no text, no UI, no watermark.${neg ? `
+Generate one image: a visual novel character sprite, waist-up portrait of "${ch.name}" (${look || 'as in the reference'}). Outfit: ${outfit}. Expression and pose: ${EMO_DESC[emo] || emo}. Natural, expressive, candid body language and a slight three-quarter angle, NOT a stiff straight-on attention stance. ${String(s.styleText || '').trim() ? `Rendering style: ${String(s.styleText).trim()}. ` : ''}Match EXACTLY the rendering style, level of realism, lighting and color grading of the reference image (if the reference is photorealistic, make this photorealistic too, NOT anime or illustration). Background: plain flat solid pure white, no floor, no shadow, no gradient, no props behind. Single character, no text, no UI, no watermark. Do not add any bag, strap, prop, accessory or clothing item that is not visible in the reference image or written in the appearance tags or the outfit.${neg ? `
 Avoid: ${neg}.` : ''}`;
     const { b64, mime } = await geminiImage(prompt, refs, '3:4', `${ch.name}·${emo}`, st.abort?.signal);
     if (s.keepOrig && s.cutout) await saveOrig(ch, emo, b64, mime);
@@ -968,7 +1097,7 @@ Avoid: ${neg}.` : ''}`;
     root = document.createElement('div'); root.id = 'ee-modal'; root.className = 'ee-off';
     root.innerHTML = `<div class="ee-bar" title="${tl("끌어서 옮기기")}"><b>${tl("🎭 표정 추출기")}</b><span class="ee-grow"></span><button class="ee-btn sm" data-act="close" aria-label="${tl("닫기")}">✕</button></div>
       <div class="ee-tabs"><button class="ee-tab on" data-act="tab" data-tab="main">${tl("표정")}</button><button class="ee-tab" data-act="tab" data-tab="set">${tl("설정")}</button><button class="ee-tab" data-act="tab" data-tab="log">${tl("기록")}</button></div>
-      <div id="ee-body" class="ee-bodywrap"></div><div id="ee-edge" class="ee-edge ee-off"></div><div class="ee-grip" title="${tl("끌어서 크기 조절")}"></div>`;
+      <div id="ee-body" class="ee-bodywrap"></div><div id="ee-edge" class="ee-edge ee-off"></div><div id="ee-zoom" class="ee-zoomlayer ee-off" data-act="zoom-close"></div><div class="ee-grip" title="${tl("끌어서 크기 조절")}"></div>`;
     document.body.appendChild(root);
     root.addEventListener('click', onClick);
     root.addEventListener('change', onChange);
@@ -994,7 +1123,7 @@ Avoid: ${neg}.` : ''}`;
     if (!wasOpen) { winApply(); root.classList.remove('ee-off'); }
     await renderBody();
   }
-  const closeModal = () => { closeEdge(); root?.classList.add('ee-off'); };
+  const closeModal = () => { closeEdge(); closeZoom(); document.querySelectorAll('.ee-zoom').forEach((o) => o.remove()); root?.classList.add('ee-off'); };
 
   async function renderBody() {
     root.querySelectorAll('.ee-tab').forEach((b) => b.classList.toggle('on', b.dataset.tab === st.tab));
@@ -1070,9 +1199,13 @@ Avoid: ${neg}.` : ''}`;
         <span class="ee-grow"></span>
         <button class="ee-btn primary" data-act="gen" id="ee-gen"></button><button class="ee-btn danger ee-off" data-act="stop" id="ee-stop">${tl("중지")}</button></div>
       <div id="ee-prog" class="ee-prog"></div>
+      <div id="ee-fbnote"></div>
       <h4>${tl("현재 스프라이트")} <span id="ee-spcount"></span></h4>
       <div class="ee-grid" id="ee-grid"></div>
-      <p class="ee-hint">${tl("만든 표정은 확인 없이 바로 스프라이트 폴더에")} <code>${tl("감정이름.png")}</code>${tl("로 저장돼요. 이미지 1장마다 이미지 API가 1번 호출돼서 요금이 발생해요. ↻ 다시 생성 · ✂ 배경/가장자리 조절 · ✕ 삭제")}<br>${tl("기준 사진을 바꾸면 이후에 만드는 표정부터 새 사진을 기준으로 해요. neutral이 이미 있으면 neutral도 함께 기준이 되니, 새 사진으로 통일하려면 neutral부터 다시 만들어 주세요.")}</p>`;
+      <p class="ee-hint">${tl("만든 표정은 확인 없이 바로 스프라이트 폴더에")} <code>${tl("감정이름.png")}</code>${tl("로 저장돼요. 이미지 1장마다 이미지 API가 1번 호출돼서 요금이 발생해요. ↻ 다시 생성 · ✂ 배경/가장자리 조절 · ✕ 삭제")}<br>${tl("기준 사진을 바꾸면 이후에 만드는 표정부터 새 사진을 기준으로 해요. neutral이 이미 있으면 neutral도 함께 기준이 되니, 새 사진으로 통일하려면 neutral부터 다시 만들어 주세요.")}</p>
+      <details class="ee-more"><summary>${tl("ST에서 표정이 안 보여요? 점검")}</summary>
+        <p class="ee-hint">${tl("ST 화면에서 표정이 비어 보일 때 어디에서 막히는지 확인해요. 결과를 캡처해서 공유하면 원인을 찾는 데 도움이 돼요.")}</p>
+        <div class="ee-row tight"><button class="ee-btn sm" data-act="diag">${tl("점검하기")}</button></div><div id="ee-diag" class="ee-diag"></div></details>`;
     renderLook(); renderStyle(); renderChips(); renderGrid(); refreshGen(); setProg(st.prog);
   }
   function renderLook() {
@@ -1093,6 +1226,7 @@ Avoid: ${neg}.` : ''}`;
     $('#ee-spcount', root).textContent = tl("({0}장)",[st.sprites.length]);
     grid.innerHTML = st.sprites.map((sp) => `<figure class="ee-th"><img src="${esc(spriteUrl(sp))}" alt="${esc(sp.label)}" data-act="zoom" title="${tl("클릭하면 크게 보기")}"><figcaption>${esc(sp.label)}</figcaption>
       <button class="ee-x" data-act="del" data-l="${esc(sp.label)}" aria-label="${tl("삭제")}">✕</button><button class="ee-rg" data-act="regen" data-l="${esc(sp.label)}" title="${tl("이 표정 다시 생성")}" aria-label="${tl("다시 생성")}">↻</button><button class="ee-cutb" data-act="edge" data-l="${esc(sp.label)}" title="${tl("배경 제거 · 가장자리 조절")}" aria-label="${tl("가장자리 조절")}">✂</button></figure>`).join('') || `<span class="ee-hint">${tl("아직 스프라이트가 없어요. 위에서 표정을 골라 만들어 보세요.")}</span>`;
+    renderFbNote();
   }
   function refreshGen() {
     const ch = curChar(), b = $('#ee-gen', root); if (!ch || !b) return;
@@ -1147,9 +1281,96 @@ Avoid: ${neg}.` : ''}`;
     await dropOrig(ch, label);   // 보관한 원본 파일도 함께 지워요
     await loadSprites(ch); renderGrid(); renderChips(); refreshGen();
   }
+  /* 확대 보기: 창 안쪽 레이어로 보여줘요. (화면 전체를 덮는 방식은 모바일 브라우저에서 위쪽이 잘렸어요) 아무 데나 누르거나 ✕로 닫아요. */
+  const smallScreen = () => window.innerWidth < 800 || !!window.matchMedia?.('(pointer: coarse)').matches;
   function zoom(src) {
-    const o = document.createElement('div'); o.className = 'ee-zoom'; o.innerHTML = `<img src="${esc(src)}" alt="">`;
-    o.addEventListener('click', () => o.remove()); document.body.appendChild(o);
+    if (!smallScreen()) {   // PC: 화면 전체 확대 (예전 방식 그대로)
+      const o = document.createElement('div'); o.className = 'ee-zoom'; o.innerHTML = `<img src="${esc(src)}" alt="">`;
+      o.addEventListener('click', () => o.remove()); document.body.appendChild(o); return;
+    }
+    const z = root && $('#ee-zoom', root); if (!z) return;
+    z.innerHTML = `<img src="${esc(src)}" alt=""><button type="button" class="ee-btn sm ee-zoomx" data-act="zoom-close" aria-label="${esc(tl("닫기"))}">✕</button>`;
+    z.classList.remove('ee-off');
+  }
+  function closeZoom() { const z = root && $('#ee-zoom', root); if (z) { z.classList.add('ee-off'); z.innerHTML = ''; } }
+
+  /* ST 표정 확장의 "대체 표정"(Default / Fallback Expression)이 이 캐릭터에 없는 스프라이트를 가리키면,
+   * 답변에서 고른 감정의 스프라이트가 없을 때 이미지가 빈 채로 보여요. 그걸 알려 주고 neutral로 바꾸는 버튼을 줘요. */
+  function stFallback() { const ex = ctx().extensionSettings?.expressions; return ex ? { fb: ex.fallback_expression || null, emoji: !!ex.showDefault } : null; }
+  function renderFbNote() {
+    const box = root && $('#ee-fbnote', root); if (!box) return;
+    const f = stFallback(); let html = '';
+    if (f && st.sprites.length && !f.emoji && !(f.fb && hasSprite(f.fb))) {
+      const why = f.fb ? tl('⚠ ST 표정 확장의 대체 표정은 "{0}"인데 이 캐릭터에는 그 스프라이트가 없어요. 답변에서 고른 감정의 표정이 없으면 이미지가 비어 보여요.', [f.fb]) : tl('⚠ ST 표정 확장에 대체 표정이 설정돼 있지 않아요. 답변에서 고른 감정의 표정이 없으면 이미지가 비어 보여요.');
+      const act = hasSprite('neutral') ? `<button class="ee-btn sm" data-act="fallback-neutral" title="${esc(tl("ST 표정 확장의 'Default / Fallback Expression'을 neutral로 바꿔요"))}">${esc(tl('neutral을 대체 표정으로 설정'))}</button>` : `<span class="ee-hint">${esc(tl('neutral 표정을 먼저 만들면 대체 표정으로 쓸 수 있어요.'))}</span>`;
+      html = `<div class="ee-row tight"><span class="ee-warn">${esc(why)}</span>${act}</div>`;
+    }
+    box.innerHTML = html;
+  }
+  /* ST 화면에서 표정이 비어 보일 때, 어디에서 막히는지 차례로 확인해서 보여줘요 */
+  async function runDiag() {
+    const ch = curChar(), box = $('#ee-diag', root); if (!ch || !box) return;
+    box.innerHTML = `<span class="ee-hint">${esc(tl('점검하는 중…'))}</span>`;
+    const L = [], add = (kind, text) => L.push({ kind, text });
+    const ex = ctx().extensionSettings?.expressions, dis = ctx().extensionSettings?.disabledExtensions;
+    const holder = document.getElementById('expression-holder');
+    if (Array.isArray(dis) && dis.some((n) => /expressions/i.test(String(n)))) add('warn', tl("ST의 Character Expressions 확장이 꺼져 있어요. 켜야 표정이 표시돼요."));
+    else if (!holder) add('warn', tl('ST 화면에서 스프라이트 상자(expression-holder)를 찾지 못했어요. Character Expressions 확장이 설치/활성화돼 있는지 확인해 주세요.'));
+    else add('ok', tl("ST Character Expressions 확장이 켜져 있어요."));
+    const folder = folderOf(ch); let list = [];
+    try { const r = await fetch('/api/sprites/get?name=' + encodeURIComponent(folder), { headers: jsonHeaders() }); list = r.ok ? await r.json() : []; } catch { list = []; }
+    if (!Array.isArray(list)) list = [];
+    if (!list.length) add('warn', tl('폴더 characters/{0}/ 에서 스프라이트를 하나도 찾지 못했어요. ST가 읽는 폴더 이름이 이 캐릭터 이름과 다른지 확인해 주세요.', [folder]));
+    else {
+      add('ok', tl('폴더 characters/{0}/ 에서 스프라이트 {1}장을 찾았어요.', [folder, list.length]));
+      const bad = [];
+      for (const sp of list) { try { const r = await fetch(sp.path, { method: 'HEAD' }); if (!r.ok) bad.push(`${sp.label} (${r.status})`); } catch { bad.push(`${sp.label} (network)`); } }
+      add(bad.length ? 'warn' : 'ok', bad.length ? tl('불러오지 못하는 파일: {0}', [bad.join(', ')]) : tl('모든 파일이 서버에서 정상적으로 받아져요.'));
+      const test = list.find((x) => x.label === 'neutral') || list[0];
+      try { const im = await loadImg(test.path); add(im.naturalWidth > 0 ? 'ok' : 'warn', tl('{0} 이미지 크기: {1}×{2}', [test.label, im.naturalWidth, im.naturalHeight])); }
+      catch { add('warn', tl('{0} 이미지를 브라우저가 열지 못했어요.', [test.label])); }
+    }
+    if (holder) {
+      const cs = getComputedStyle(holder), r = holder.getBoundingClientRect(), im = holder.querySelector('img.expression:not(.expression-clone)') || holder.querySelector('img.expression');
+      add('info', tl('ST 스프라이트 상자: display={0}, 크기 {1}×{2}px', [cs.display, Math.round(r.width), Math.round(r.height)]));
+      if (im) {
+        const src = im.getAttribute('src') || '';
+        if (!src) add('warn', tl("ST의 스프라이트 이미지에 주소가 비어 있어요. ST가 최근 답변에 맞는 표정을 아직 고르지 못했거나, 고른 표정의 스프라이트를 찾지 못한 상태예요."));
+        else { const ok = im.complete && im.naturalWidth > 0; add(ok ? 'ok' : 'warn', tl('ST가 지금 쓰는 이미지: {0} ({1}×{2}, {3})', [decodeURIComponent(src.split('?')[0]).split('/').pop(), im.naturalWidth, im.naturalHeight, ok ? tl('불러옴') : tl('불러오는 중 또는 실패')])); }
+      }
+    }
+    const waifu = document.body.classList.contains('waifuMode'), api = ex?.api;
+    const apiName = [tl('Local (영어 전용 모델)'), 'Extras', 'Main API', 'WebLLM'][api] ?? '?';
+    add('info', tl('Visual Novel(와이프) 모드: {0} · 대체 표정: {1} · 분류 방식: {2}', [waifu ? tl('켜짐') : tl('꺼짐'), ex?.showDefault ? tl('기본 이모지') : (ex?.fallback_expression || tl('없음')), apiName]));
+    add('info', tl('분류 전에 영어로 번역: {0}', [ex?.translate ? tl('켜짐') : tl('꺼짐')]));
+    if (!waifu && window.matchMedia?.('(max-width: 1000px)').matches) add('warn', tl('모바일 화면에서는 ST가 Visual Novel(와이프) 모드를 켰을 때만 스프라이트를 보여줘요.'));
+    /* ST의 기본 분류기는 영어 전용 모델이라, 한국어 같은 답변은 감정을 잘못 고르거나 만들지 않은 표정을 고를 수 있어요 */
+    const lastReply = [...(ctx().chat || [])].reverse().find((m) => m && !m.is_user && !m.is_system && m.mes)?.mes || '';
+    const nonEnglish = (lastReply.match(/[\u3131-\u318E\uAC00-\uD7A3\u3040-\u30FF\u3400-\u9FFF]/g) || []).length >= 5;
+    const canTranslate = typeof globalThis.translate === 'function';
+    let extra = '';
+    if (nonEnglish && (api === 0 || api === 1) && !ex?.translate) {
+      add('warn', tl('마지막 답변이 영어가 아니에요. ST의 기본 표정 분류기는 영어 전용이라 감정을 잘못 고르거나 만들지 않은 표정을 고를 수 있어요. "Translate text to English before classification"을 켜거나 분류 방식(Classifier API)을 "Main API"로 바꿔 보세요.'));
+      if (canTranslate) extra = `<div class="ee-row tight"><button class="ee-btn sm" data-act="enable-translate">${esc(tl('번역 후 분류 켜기'))}</button></div>`;
+      else add('warn', tl("번역 후 분류를 쓰려면 ST의 Chat Translation 확장을 켜고 번역 방식을 설정해야 해요."));
+    }
+    if (ex?.translate && !canTranslate) add('warn', tl('번역 후 분류가 켜져 있지만 Chat Translation 확장이 동작하지 않아서 번역되지 않아요.'));
+    if (api === 2 && !ex?.filterAvailable && ALL.filter(hasSprite).length < ALL.length) add('warn', tl('분류 방식이 Main API인데 만든 표정만 사용하는 옵션(Only show and use expressions that have sprites)이 꺼져 있어요. 표정을 일부만 만들었다면 켜 두면 만든 표정 중에서만 골라요.'));
+    box.innerHTML = L.map((l) => `<div class="ee-dl ${l.kind}">${l.kind === 'ok' ? '✅' : l.kind === 'warn' ? '⚠️' : 'ℹ️'} ${esc(l.text)}</div>`).join('') + extra;
+  }
+  function setStTranslate(on) {
+    const cb = document.getElementById('expression_translate'), ex = (ctx().extensionSettings.expressions ||= {});
+    if (cb) { cb.checked = on; cb.dispatchEvent(new Event('input', { bubbles: true })); }   // ST가 직접 저장하게 해요
+    else { ex.translate = on; save(); }
+    say('success', tl('번역 후 분류를 켰어요. 새 답변부터 적용돼요.'));
+    return runDiag();
+  }
+  function setStFallback(label) {
+    const sel = document.getElementById('expression_fallback'), ex = (ctx().extensionSettings.expressions ||= {});
+    if (sel && [...sel.options].some((o) => o.value === label)) { sel.value = label; sel.dispatchEvent(new Event('change', { bubbles: true })); }   // ST가 직접 처리하게 해요
+    else { ex.fallback_expression = label; ex.showDefault = false; save(); }
+    say('success', tl('ST 표정 확장의 대체 표정을 {0}로 바꿨어요. 바로 안 바뀌면 채팅을 다시 열어 보세요.', [label]));
+    renderFbNote();
   }
 
   /* ================= 기준 사진 바꾸기 / 장면 생성기 외형 가져오기 ================= */
@@ -1201,6 +1422,7 @@ Avoid: ${neg}.` : ''}`;
   const numClamp = (f, v) => clamp(Math.round(v), f[3], f[4]);
   const numRow = (f, attr, val) => `<div class="ee-numrow"><label class="ee-num"><span>${tl(f[2])} <small>(${f[3]}~${f[4]})</small></span><input type="number" min="${f[3]}" max="${f[4]}" step="1" value="${val}" ${attr}></label><p class="ee-hint">${tl(f[5])}</p></div>`;
   function renderSetTab() {
+    st.spScan = null;   // 목록은 열 때마다 새로 찾아요 (오래된 목록으로 지우지 않게)
     const s = S(), body = $('#ee-body', root);
     const lg = S().lang;
     body.innerHTML = `
@@ -1214,6 +1436,10 @@ Avoid: ${neg}.` : ''}`;
       <div class="ee-nums">${NUM_FIELDS.slice(1).map((f) => numRow(f, `data-sk="${f[0]}"`, s[f[0]])).join('')}</div>
       <p class="ee-hint">${tl("숫자를 직접 입력해요. 이 값은 앞으로 만드는 표정에 적용돼요. 이미 만든 표정은 [표정] 탭에서 ✂를 눌러 미리 보면서 조절해요. 배경 제거와 가장자리 조절은 브라우저 안에서 처리돼서 API 호출이 늘지 않아요.")}</p>
       <div class="ee-row"><button class="ee-btn sm" data-act="set-reset">${tl("가장자리 값을 기본으로 되돌리기")}</button></div>
+      <h4>${tl("스프라이트 삭제 (선택)")}</h4>
+      <p class="ee-hint">${tl("만든 표정 스프라이트(characters/…)는 ST 표정 확장이 쓰는 파일이라 아래 \"데이터 정리\" 버튼으로는 지워지지 않아요. 확장을 완전히 지울 때 여기서 골라서 지우세요. 지우면 되돌릴 수 없어요. \"이 확장의 모든 데이터 삭제\"보다 먼저 쓰세요.")}</p>
+      <div class="ee-row tight"><button class="ee-btn sm" data-act="sp-scan">${tl("스프라이트 폴더 찾기")}</button></div>
+      <div id="ee-splist"></div>
       <h4>${tl("데이터 정리")}</h4>
       <p class="ee-hint">${tl("보관한 원본과 기준 사진은 서버의")} <code>user/images/expression-extractor/</code> ${tl("폴더에 저장돼요. 표정 스프라이트(")}<code>characters/…</code>${tl(")는 아래 버튼으로 지워지지 않아요.")}</p>
       <div class="ee-row tight"><button class="ee-btn sm" data-act="clean-orphans" title="${tl("어디에서도 쓰지 않는 파일과, ST에서 삭제된 캐릭터의 설정을 정리해요")}">${tl("쓰지 않는 파일 정리")}</button><button class="ee-btn sm" data-act="clean-origs" title="${tl("보관한 원본을 모두 지워요. 이후 ✂ 조절은 현재 이미지를 기준으로 해요")}">${tl("보관한 원본 모두 삭제")}</button><button class="ee-btn danger sm" data-act="wipe-all" title="${tl("API 키, 기록, 외형 태그, 프리셋, 기준 사진, 보관 파일을 모두 지워요")}">${tl("이 확장의 모든 데이터 삭제")}</button></div>
@@ -1310,8 +1536,8 @@ Avoid: ${neg}.` : ''}`;
         if (!window.confirm(tl("보관한 원본 {0}개를 모두 삭제해요.\n이후 ✂ 가장자리 조절은 지금 저장된 이미지를 기준으로 해요. 계속할까요?",[n]))) return;
         const r = await cleanupFiles({ dropOrigs: true }); const m = tl("보관한 원본 파일 {0}개를 지웠어요.",[r.removed]); show(m); say('success', m);
       } else {
-        if (!window.confirm(tl("이 확장의 모든 데이터를 삭제해요.\n\n- API 키, 호출 기록, 외형 태그, 화풍 프리셋, 창 위치 등 설정 전체\n- 서버에 보관한 원본/기준 사진 파일 전체\n\n만든 표정 스프라이트(characters/…)와 ST 표정 확장의 \"폴더 덮어쓰기\"는 그대로 남아요.\n확장을 지우기 전에 쓰는 기능이에요. 계속할까요?"))) return;
-        const n = await wipeAll(); syncDrawer(); await renderBody(); say('success', tl("모든 데이터를 삭제했어요. (서버 파일 {0}개)",[n]));
+        if (!window.confirm(tl("이 확장의 모든 데이터를 삭제해요.\n\n- API 키, 호출 기록, 외형 태그, 화풍 프리셋, 창 위치 등 설정 전체\n- 서버에 보관한 원본/기준 사진 파일 전체\n\n만든 표정 스프라이트(characters/…)와 ST 표정 확장의 \"폴더 덮어쓰기\"는 그대로 남아요.\n스프라이트도 지우려면 이 버튼보다 먼저 \"스프라이트 삭제\"를 쓰세요. 이 버튼을 누르면 어떤 폴더가 이 확장으로 만든 것인지 기억도 지워져요.\n확장을 지우기 전에 쓰는 기능이에요. 계속할까요?"))) return;
+        const n = await wipeAll(); syncDrawer(); await renderBody(); say('success', tl("모든 데이터를 삭제했어요. (서버 파일 {0}개) 확장을 지우거나, 계속 쓰려면 페이지를 새로고침하세요.",[n]));
       }
     } catch (e) { say('error', tl("정리하지 못했어요: ") + (e.message || e)); }
   }
@@ -1321,12 +1547,16 @@ Avoid: ${neg}.` : ''}`;
     const t = e.target.closest('[data-act]'); if (!t) return;
     const act = t.dataset.act, ch = curChar();
     if (act === 'close') return closeModal();
+    if (act === 'zoom-close') return closeZoom();
     if (act === 'zoom') return zoom(t.getAttribute('src'));
-    if (act === 'tab') { closeEdge(); st.tab = t.dataset.tab; return renderBody(); }
+    if (act === 'fallback-neutral') return setStFallback('neutral');
+    if (act === 'tab') { closeEdge(); closeZoom(); st.tab = t.dataset.tab; return renderBody(); }
     if (act === 'stop') return cancelGen();
     if (act === 'usage-reset') { if (!window.confirm(tl("호출 기록과 누적 횟수를 모두 지울까요?"))) return; const s0 = S(); s0.usage = structuredClone(defaults.usage); s0.usageLog = []; save(); return renderLogTab(); }
     if (act === 'set-reset') { const s0 = S(); Object.assign(s0, { cutTol: defaults.cutTol, edgeFringe: defaults.edgeFringe, edgeShrink: defaults.edgeShrink, edgeSoft: defaults.edgeSoft, holeTol: defaults.holeTol }); save(); return renderSetTab(); }
     if (act === 'clean-orphans' || act === 'clean-origs' || act === 'wipe-all') return runCleanup(act);
+    if (act === 'sp-scan') return runSpriteScan();
+    if (act === 'sp-delete') return runSpriteDelete();
     if (act === 'edge-close') return closeEdge();
     if (act === 'edge-bg') { edge.bg = t.dataset.k; $('#ee-cvwrap', root).className = 'ee-cvwrap bg-' + edge.bg; root.querySelectorAll('[data-act="edge-bg"]').forEach((b) => b.classList.toggle('primary', b === t)); return; }
     if (act === 'edge-apply') return edgeApply();
@@ -1334,6 +1564,8 @@ Avoid: ${neg}.` : ''}`;
     if (act === 'edge-reset') return edgeSetValues({ tol: defaults.cutTol, fringe: defaults.edgeFringe, shrink: defaults.edgeShrink, soft: defaults.edgeSoft, holes: defaults.holeTol });
     if (!ch) return;
     if (act === 'folder-split' || act === 'folder-join') { if (st.busy) return say('info', tl("생성 중에는 폴더를 바꿀 수 없어요.")); return act === 'folder-split' ? splitFolder(ch) : joinFolder(ch); }
+    if (act === 'diag') return runDiag();
+    if (act === 'enable-translate') return setStTranslate(true);
     if (act === 'look-ss') return lookFromSS(ch);
     if (act === 'ref-pick') return $('#ee-reffile', root).click();
     if (act === 'ref-reset') { const oldRef = cd(ch).ref; delete cd(ch).ref; save(); if (oldRef) await deleteImageFile(oldRef); say('success', tl("카드 PNG를 기준으로 되돌렸어요.")); return renderBody(); }
@@ -1376,6 +1608,7 @@ Avoid: ${neg}.` : ''}`;
   async function onChange(e) {
     const t = e.target, ch = curChar();
     if (t.dataset?.skc) { S()[t.dataset.skc] = t.checked; save(); return; }
+    if (t.dataset?.spf !== undefined) { const e = (st.spScan || [])[+t.dataset.spf]; if (e) { e.sel = t.checked; updateSpSummary(); } return; }
     if (t.dataset?.sl) { S()[t.dataset.sl] = t.value; save(); syncDrawer(); relocalize(); return; }   // 언어
     if (t.dataset?.sk) { const f = numField(t.dataset.sk), v = parseFloat(t.value); if (f) { if (Number.isFinite(v)) S()[f[0]] = numClamp(f, v); t.value = S()[f[0]]; save(); } return; }   // 범위를 벗어나면 맞춰 줘요
     if (t.dataset?.edge) { const f = numField(t.dataset.edge), v = parseFloat(t.value); if (f) { if (Number.isFinite(v)) edge.o[f[1]] = numClamp(f, v); t.value = edge.o[f[1]]; edgeSchedule(); } return; }

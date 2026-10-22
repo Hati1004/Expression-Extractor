@@ -48,6 +48,14 @@
 ## 이름이 같은 캐릭터
 ST는 표정 스프라이트를 **캐릭터 이름**으로 저장해서, 이름이 같은 두 캐릭터는 한 폴더를 같이 쓰고 표정이 섞여요(ST 기본 확장도 같아요). 그럴 때 경고와 **전용 폴더** 버튼이 떠요. 누르면 `characters/<이름>_<아바타 파일명>/`을 쓰고 ST의 *폴더 덮어쓰기*로 등록돼서 채팅에서도 올바른 폴더를 읽어요. *공유 폴더로 되돌리기*로 해제할 수 있어요.
 
+## 문제 해결: 스프라이트 영역이 비어 있어요 (Visual Novel / "와이프" 모드)
+ST 표정 확장은 AI 답변에서 고른 감정의 스프라이트가 있을 때만 이미지를 보여줘요. 없으면 **Default / Fallback Expression**(대체 표정, 기본값 `joy`)을 쓰고, 그것도 없으면 스프라이트 상자가 **빈 채로** 남아요. 표정을 몇 장만(예: `neutral`만) 만들었을 때 생기는 일이에요.
+- [표정] 탭을 보세요. 대체 표정의 스프라이트가 없으면 경고와 **neutral을 대체 표정으로 설정** 버튼이 떠요. *확장 프로그램 → Character Expressions → Default / Fallback Expression*에서 직접 바꿔도 돼요.
+- 28개 중 더 많이 만들수록 대체 표정이 쓰이는 일이 줄어요.
+- **모바일(폰) 화면에서는 ST가 Visual Novel("와이프") 모드를 켰을 때만 스프라이트를 보여줘요.** 표정을 다 만들었는데도 스프라이트 상자가 비어 있으면 [표정] 탭의 *ST에서 표정이 안 보여요? 점검*을 실행해 보세요. 스프라이트를 찾았는지, 파일이 불러와지는지, ST 스프라이트 상자에 지금 무엇이 들어 있는지 알려 줘요. 도움을 요청할 때 결과를 캡처해서 보내 주세요.
+- **한국어/일본어/중국어 채팅:** ST의 기본 분류기(*Local*)는 **영어 전용 모델**(`distilbert-base-uncased-go-emotions`)이에요. 영어가 아닌 답변은 감정을 잘못 고르거나, 만들지 않은 표정을 고를 수 있어서 스프라이트 상자가 비어 보여요. 해결: *확장 프로그램 → Character Expressions → Translate text to English before classification*을 켜거나(ST의 Chat Translation 확장 설정이 필요하고, 답변 글이 그 번역 서비스로 전송돼요), *Classifier API*를 *Main API*로 바꾸세요(메인 LLM이 분류해요. 표정을 일부만 만들었다면 *Only show and use expressions that have sprites*도 켜세요). [표정] 탭의 점검이 이 상황을 알아내고, 번역 옵션을 켜 주는 버튼도 있어요.
+- 화면 아래쪽에 생기는 작은 대각선 "크기 조절" 손잡이는 이 확장이 아니라 ST 스프라이트 상자 자체의 것이에요(`.expression-holder { resize: both }`). 숨기려면 *User Settings → Custom CSS*에 `.expression-holder { resize: none !important; }`를 넣으세요.
+
 ## 데이터, 개인정보, 정리
 **무엇이 어디로 전송되나요**
 - **Google(aiplatform.googleapis.com)**: 생성 프롬프트(외형 태그, 의상, 화풍, 제외 요소, 감정 포즈 문장)와 참조 이미지(카드 PNG 또는 고른 기준 사진, `neutral` 스프라이트). 이 확장이 접속하는 외부 서버는 이것뿐이에요.
@@ -64,8 +72,12 @@ ST는 표정 스프라이트를 **캐릭터 이름**으로 저장해서, 이름�
 - **쓰지 않는 파일 정리**: 어디에서도 쓰지 않는 파일과, ST에서 삭제된 캐릭터의 설정을 지워요.
 - **보관한 원본 모두 삭제**: 보관한 원본을 전부 지워요.
 - **이 확장의 모든 데이터 삭제**: `user/images/expression-extractor/`의 파일과 이 확장의 설정(API 키, 기록 등)을 지워요. 확장을 지우기 전에 실행하세요.
-- ST가 확장에게 지우게 허용하지 않는 것: 파일을 지운 뒤에 남는 빈 폴더(`characters/<이름>/`, `user/images/expression-extractor/`), 전용 폴더 버튼이 만든 *폴더 덮어쓰기* 항목.
+- **스프라이트 삭제(선택)** ([설정] 탭): **스프라이트 폴더 찾기**는 ST가 캐릭터별로 읽는 폴더와, 이 확장이 쓴 폴더(나중에 ST에서 지운 캐릭터의 폴더 포함)를 목록으로 보여 줘요. 이 확장으로 만든 것으로 보이는 폴더는 미리 체크돼 있고, 직접 올린 것일 수 있는 폴더는 체크돼 있지 않아요. **선택한 스프라이트 삭제**는 파일과, 이 확장이 만든 전용 폴더 덮어쓰기 항목, 대응하는 보관 원본을 함께 지워요.
+- ST가 확장에게 지우게 허용하지 않는 것: 파일을 지운 뒤에 남는 빈 폴더(`characters/<이름>/`, `user/images/expression-extractor/`).
 
-**확장 삭제시**
-- 표정 추출기 탭의 설정 아래에서 확장의 모든 데이터 삭제 클릭 (user/images/expression-extractor/의 파일과 이 확장의 설정 API 키, 기록 등)을 지워요. 확장을 지우기 전에 실행하세요.
-- 확장 삭제 후 SillyTavern\data\default-user\user\images\expression-extractor 폴더 삭제 / 다운로드한 본인 위치\SillyTavern\data\default-user\characters\캐릭터 폴더 삭제
+### 완전 삭제 (아무것도 남기지 않기) 순서대로
+1. [설정] 탭 → **스프라이트 삭제(선택)** → **스프라이트 폴더 찾기** → 지울 폴더를 확인 → **선택한 스프라이트 삭제**. ST에서 계속 쓸 스프라이트는 이 단계를 건너뛰세요.
+2. [설정] 탭 → **데이터 정리** → **이 확장의 모든 데이터 삭제**. `settings.json`의 이 확장 설정 항목까지 지워요. 이후에는 확장을 삭제하세요(계속 쓰려면 페이지를 새로고침하세요).
+3. 확장을 삭제해요 (ST 확장 목록에서, 또는 `extensions/Expression-Extractor` 폴더 삭제).
+4. 남은 빈 폴더를 지워요. Termux: `find ~/SillyTavern/data/default-user/characters -mindepth 1 -type d -empty -delete` 과 `rmdir ~/SillyTavern/data/default-user/user/images/expression-extractor`. PC에서는 빈 폴더를 직접 지우세요.
+5. SillyTavern을 껐다 켜고 페이지를 새로고침해요.
